@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> serigne Malick - Portfolio Professionnel</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter & Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            dark: '#0f172a',
+                            card: '#1e293b',
+                            accent: '#6366f1'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Styles personnalisés pour effets visuels */
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.3);
+        }
+        .glow-effect:hover {
+            box-shadow: 0 0 35px 0px rgba(16, 185, 129, 0.5);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-[#0b0f19] text-gray-200 antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-card transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#hero" class="text-2xl font-bold font-heading tracking-wider flex items-center gap-2">
+                    <span class="text-emerald-500">&lt;</span>
+                    <span>MALICK</span>
+                    <span class="text-emerald-500">/&gt;</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#hero" class="hover:text-emerald-400 transition-colors duration-200">Accueil</a>
+                    <a href="#about" class="hover:text-emerald-400 transition-colors duration-200">À propos</a>
+                    <a href="#presentation" class="hover:text-emerald-400 transition-colors duration-200">Présentation</a>
+                    <a href="#skills" class="hover:text-emerald-400 transition-colors duration-200">Compétences</a>
+                    <a href="#projects" class="hover:text-emerald-400 transition-colors duration-200">Projets</a>
+                    <a href="#rapport-ia" class="hover:text-emerald-400 transition-colors duration-200">Rapport IA</a>
+                    <a href="#contact" class="hover:text-emerald-400 transition-colors duration-200">Contact</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" type="button" class="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500 p-2 rounded-lg" aria-label="Menu principal">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-3">
+                <a href="#hero" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-emerald-500/10 hover:text-emerald-400">Accueil</a>
+                <a href="#about" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-emerald-500/10 hover:text-emerald-400">À propos</a>
+                <a href="#presentation" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-emerald-500/10 hover:text-emerald-400">Présentation Video</a>
+                <a href="#skills" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-emerald-500/10 hover:text-emerald-400">Compétences</a>
+                <a href="#projects" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-emerald-500/10 hover:text-emerald-400">Projets</a>
+                <a href="#rapport-ia" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-emerald-500/10 hover:text-emerald-400">Rapport IA</a>
+                <a href="#contact" class="mobile-link block px-3 py-2 rounded-md text-base font-medium hover:bg-emerald-500/10 hover:text-emerald-400">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="min-h-[calc(100vh-5rem)] flex items-center justify-center relative overflow-hidden py-16">
+            <!-- Background Glows -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+                <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+                    
+                    <!-- Text Content -->
+                    <div class="flex-1 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium mb-6">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                            Développeur Web & Tech Enthusiast
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight tracking-tight mb-4">
+                            Bonjour, je suis serigne malick <br>
+                            <span class="gradient-text"></span>
+                        </h1>
+                        <p class="text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                            Passionné par la création d'expériences web modernes, performantes et intuitives. J'allie créativité technique et rigueur pour concrétiser des projets d'impact.
+                        </p>
+
+                        <!-- Action Buttons -->
+                        <section id="cv">
+    <h2>Mon CV</h2>
+    <p>Découvrez mon parcours, mes compétences et mes ambitions.</p>
+
+    <a href="resume.pdf" download="CV-Serigne-Malick-Tall-Diouf.pdf">
+        📄 Télécharger mon CV
+    </a>
+</section>
+    
+                            </a>
+                            <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl glass-card hover:bg-slate-800 text-gray-200 font-semibold border border-gray-700 hover:border-emerald-500/50 transition-all duration-300">
+                                <i class="fa-regular fa-paper-plane"></i>
+                                Me contacter
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Profile Photo Container -->
+                    <div class="flex-1 flex justify-center">
+                        <div class="relative group">
+                            <!-- Glowing ring background -->
+                            <div class="absolute -inset-1.5 bg-gradient-to-r from-emerald-500 to-indigo-600 rounded-full blur opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                            
+                            <!-- Profile Image Frame -->
+                            <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-slate-900 bg-slate-800 flex items-center justify-center shadow-2xl">
+                                <img src="malick.jpg" alt="Photo de profil de Malick" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/400x400/1e293b/10b981?text=Malick';">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Section À Propos & CV -->
+        <section id="about" class="py-20 bg-slate-900/50 border-y border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold font-heading mb-4">À propos de moi</h2>
+                    <div class="w-20 h-1 bg-emerald-500 mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-400">Découvrez mon parcours, mes motivations et mon CV complet.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold font-heading text-emerald-400">Développeur passionné & Curieux</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Aspirant professionnel des technologies du web, je conçois des interfaces élégantes et responsives en combinant de solides bases en développement front-end avec des pratiques modernes d'ingénierie logicielle.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Actuellement engagé dans la création de solutions numérique durables, j'utilise également l'Intelligence Artificielle comme levier pour accélérer le prototypage, optimiser la qualité du code et explorer de nouvelles fonctionnalités.
+                        </p>
+                        <div class="pt-4">
+                            <a href="resume.pdf" target="_blank" class="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-emerald-400 font-medium border border-emerald-500/30 hover:border-emerald-500 transition-all">
+                                <i class="fa-solid fa-file-pdf text-xl"></i>
+                                <section id="cv">
+    
+
+    </a>
+</section>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Fast Stats Grid -->
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass-card p-6 rounded-2xl border border-gray-800 text-center">
+                            <i class="fa-solid fa-code text-3xl text-emerald-400 mb-3"></i>
+                            <div class="text-3xl font-bold font-heading text-white mb-1">10+</div>
+                            <div class="text-sm text-gray-400">Projets Web Réalisés</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border border-gray-800 text-center">
+                            <i class="fa-solid fa-brain text-3xl text-indigo-400 mb-3"></i>
+                            <div class="text-3xl font-bold font-heading text-white mb-1">IA Integration</div>
+                            <div class="text-sm text-gray-400">Workflow Optimisé</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border border-gray-800 text-center">
+                            <i class="fa-solid fa-laptop-code text-3xl text-emerald-400 mb-3"></i>
+                            <div class="text-3xl font-bold font-heading text-white mb-1">100%</div>
+                            <div class="text-sm text-gray-400">Responsive Design</div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl border border-gray-800 text-center">
+                            <i class="fa-solid fa-graduation-cap text-3xl text-indigo-400 mb-3"></i>
+                            <div class="text-3xl font-bold font-heading text-white mb-1">En Mouvement</div>
+                            <div class="text-sm text-gray-400">Apprentissage Continu</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ```html
+<!-- 3. Section Vidéo de présentation -->
+<section id="presentation" class="py-20 bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Titre de la section -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4">
+                Présentation Vidéo
+            </h2>
+
+            <div class="w-20 h-1 bg-emerald-500 mx-auto rounded-full mb-6"></div>
+
+            <p class="text-gray-400">
+                Découvrez qui je suis, mon parcours, mes compétences
+                et mes ambitions professionnelles.
+            </p>
+        </div>
+
+        <!-- Vidéo de présentation -->
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-gray-800 p-4 sm:p-6 rounded-2xl shadow-xl">
+
+                <video
+                    class="w-full rounded-xl"
+                    controls
+                    preload="metadata"
+                    poster="malick.jpg">
+
+                    <source src="presentation.mp4" type="video/mp4">
+
+                    Votre navigateur ne prend pas en charge la lecture vidéo.
+                </video>
+
+                <div class="text-center mt-6">
+                    <h3 class="text-xl font-bold text-emerald-400 mb-2">
+                        Serigne Malick Tall Diouf
+                    </h3>
+
+                    <p class="text-gray-300 mb-4">
+                        Étudiant à GoMyCode | Développement Web |
+                        Marketing Digital
+                    </p>
+
+                    <p class="text-gray-400 leading-relaxed">
+                        Bonjour ! Je m'appelle Serigne Malick Tall Diouf.
+                        Je suis étudiant à GoMyCode et passionné par le
+                        développement web et le marketing digital.
+                        Mon objectif est de développer mes compétences,
+                        réaliser des projets innovants et contribuer
+                        à la réussite des entreprises grâce au numérique.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+```
+        
+
+        <!-- 4. Section Compétences & Projets -->
+        <section id="skills" class="py-20 bg-slate-900/50 border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Compétences -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold font-heading mb-4">Compétences Techniques</h2>
+                    <div class="w-20 h-1 bg-emerald-500 mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-400">Les technologies et outils que j'utilise au quotidien.</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mb-24">
+                    <!-- Tech Card 1 -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 hover:border-emerald-500/50 transition-all duration-300 text-center group hover:-translate-y-1">
+                        <i class="fa-brands fa-html5 text-4xl text-orange-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-semibold text-white">HTML5</h3>
+                        <p class="text-xs text-gray-400 mt-1">Sémantique</p>
+                    </div>
+                    <!-- Tech Card 2 -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 hover:border-emerald-500/50 transition-all duration-300 text-center group hover:-translate-y-1">
+                        <i class="fa-brands fa-css3-alt text-4xl text-blue-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-semibold text-white">CSS3</h3>
+                        <p class="text-xs text-gray-400 mt-1">Design Modern</p>
+                    </div>
+                    <!-- Tech Card 3 -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 hover:border-emerald-500/50 transition-all duration-300 text-center group hover:-translate-y-1">
+                        <i class="fa-brands fa-js text-4xl text-yellow-400 mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-semibold text-white">JavaScript</h3>
+                        <p class="text-xs text-gray-400 mt-1">ES6+ / Logique</p>
+                    </div>
+                    <!-- Tech Card 4 -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 hover:border-emerald-500/50 transition-all duration-300 text-center group hover:-translate-y-1">
+                        <i class="fa-brands fa-bootstrap text-4xl text-purple-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-semibold text-white">Bootstrap</h3>
+                        <p class="text-xs text-gray-400 mt-1">UI Framework</p>
+                    </div>
+                    <!-- Tech Card 5 -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 hover:border-emerald-500/50 transition-all duration-300 text-center group hover:-translate-y-1">
+                        <i class="fa-brands fa-git-alt text-4xl text-red-500 mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-semibold text-white">Git</h3>
+                        <p class="text-xs text-gray-400 mt-1">Versionning</p>
+                    </div>
+                    <!-- Tech Card 6 -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 hover:border-emerald-500/50 transition-all duration-300 text-center group hover:-translate-y-1">
+                        <i class="fa-solid fa-robot text-4xl text-emerald-400 mb-3 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="font-semibold text-white">IA Tools</h3>
+                        <p class="text-xs text-gray-400 mt-1">Prompting & Dev</p>
+                    </div>
+                </div>
+
+                <!-- Projets -->
+                <div id="projects" class="pt-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="text-3xl sm:text-4xl font-bold font-heading mb-4">Projets Réalisés</h2>
+                        <div class="w-20 h-1 bg-emerald-500 mx-auto rounded-full mb-6"></div>
+                        <p class="text-gray-400">Aperçu de mes dernières réalisations web et applications.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Project 1 -->
+                        <div class="glass-card rounded-2xl overflow-hidden border border-gray-800 hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
+                            <div class="relative overflow-hidden aspect-video">
+                                <img src="https://placehold.co/600x400/1e293b/10b981?text=Plateforme+Web" alt="Projet 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                                    <a href="#" class="p-3 bg-emerald-500 text-slate-950 rounded-full hover:bg-emerald-400 transition-colors"><i class="fa-solid fa-link"></i></a>
+                                    <a href="#" class="p-3 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-colors"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex gap-2 mb-3">
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400">HTML/CSS</span>
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-400">JavaScript</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold font-heading text-white mb-2">Plateforme E-Commerce</h3>
+                                    <p class="text-gray-400 text-sm mb-4">Site d'achat en ligne responsive avec panier dynamique, filtres avancés et animations UI fluides.</p>
+                                </div>
+                                <a href="#" class="inline-flex items-center gap-2 text-sm text-emerald-400 font-medium hover:text-emerald-300">Détails du projet <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="glass-card rounded-2xl overflow-hidden border border-gray-800 hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
+                            <div class="relative overflow-hidden aspect-video">
+                                <img src="https://placehold.co/600x400/1e293b/6366f1?text=Application+Dashboard" alt="Projet 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                                    <a href="#" class="p-3 bg-emerald-500 text-slate-950 rounded-full hover:bg-emerald-400 transition-colors"><i class="fa-solid fa-link"></i></a>
+                                    <a href="#" class="p-3 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-colors"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex gap-2 mb-3">
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400">Bootstrap</span>
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400">API Rest</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold font-heading text-white mb-2">Dashboard de Gestion</h3>
+                                    <p class="text-gray-400 text-sm mb-4">Tableau de bord d'administration intégrant la visualisation de données et la gestion d'utilisateurs.</p>
+                                </div>
+                                <a href="#" class="inline-flex items-center gap-2 text-sm text-emerald-400 font-medium hover:text-emerald-300">Détails du projet <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="glass-card rounded-2xl overflow-hidden border border-gray-800 hover:border-emerald-500/50 transition-all duration-300 flex flex-col group">
+                            <div class="relative overflow-hidden aspect-video">
+                                <img src="https://placehold.co/600x400/1e293b/10b981?text=IA+Tool+App" alt="Projet 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+                                    <a href="#" class="p-3 bg-emerald-500 text-slate-950 rounded-full hover:bg-emerald-400 transition-colors"><i class="fa-solid fa-link"></i></a>
+                                    <a href="#" class="p-3 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition-colors"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex gap-2 mb-3">
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-indigo-500/10 text-indigo-400">IA Integration</span>
+                                        <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400">JS ES6</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold font-heading text-white mb-2">Générateur assisté par IA</h3>
+                                    <p class="text-gray-400 text-sm mb-4">Outil d'assistance au codage exploitant des API d'intelligence artificielle pour accélérer le développement.</p>
+                                </div>
+                                <a href="#" class="inline-flex items-center gap-2 text-sm text-emerald-400 font-medium hover:text-emerald-300">Détails du projet <i class="fa-solid fa-arrow-right text-xs"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. Section Rapport d'utilisation de l'IA (rapport-ia.txt) -->
+        <section id="rapport-ia" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-4">
+                        Transparence & Innovation
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-heading mb-4">Rapport d'Utilisation de l'IA</h2>
+                    <div class="w-20 h-1 bg-indigo-500 mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-400">Explication détaillée de la manière dont l'IA a été intégrée pour la conception, le code et l'apprentissage dans ce projet.</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto glass-card rounded-3xl p-6 sm:p-10 border border-gray-800 shadow-xl">
+                    <!-- Text Box Simulation of rapport-ia.txt -->
+                    <div class="bg-slate-950/80 rounded-2xl p-6 border border-gray-800 text-gray-300 font-mono text-sm leading-relaxed overflow-x-auto mb-8 max-h-80 overflow-y-auto">
+                        <p class="text-emerald-400 font-bold mb-2">=== RAPPORT D'UTILISATION DE L'INTELLIGENCE ARTIFICIELLE ===</p>
+                        <p class="mb-4">Auteur : Malick<br>Projet : Portfolio Personnel Responsive</p>
+                        
+                        <p class="text-indigo-300 font-semibold mt-4 mb-1">1. Conception & Structure :</p>
+                        <p class="text-gray-400 mb-3">- L'IA a été utilisée comme partenaire de brainstorming pour définir l'architecture des composants et l'organisation visuelle responsive.</p>
+                        
+                        <p class="text-indigo-300 font-semibold mt-4 mb-1">2. Génération de Code & Stylisation :</p>
+                        <p class="text-gray-400 mb-3">- Assistance dans l'écriture de classes utilitaires Tailwind CSS et la mise en place d'effets visuels sombres modernes (glassmorphism, dégradés, lueurs).</p>
+                        
+                        <p class="text-indigo-300 font-semibold mt-4 mb-1">3. Apprentissage & Résolution de Problèmes :</p>
+                        <p class="text-gray-400 mb-3">- Explications fournies par l'IA sur la gestion de l'accessibilité, l'optimisation des requêtes de médias et la compatibilité HTML5 vidéo.</p>
+                        
+                        <p class="text-indigo-300 font-semibold mt-4 mb-1">4. Conclusion :</p>
+                        <p class="text-gray-400">- L'IA a servi d'accélérateur tout en conservant le contrôle humain sur la logique métier et la cohérence de l'expérience utilisateur.</p>
+                    </div>
+
+                    <!-- Actions for rapport-ia.txt -->
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-gray-800">
+                        <div class="flex items-center gap-2 text-sm text-gray-400">
+                            <i class="fa-regular fa-file-lines text-indigo-400"></i>
+                            Fichier source : <code class="text-gray-200 bg-slate-800 px-2 py-0.5 rounded">rapport-ia.txt</code>
+                        </div>
+                        <a href="rapport-ia.txt" download="rapport-ia.txt" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold shadow-lg shadow-indigo-600/30 transition-all">
+                            <i class="fa-solid fa-download"></i>
+                            Télécharger le fichier .txt
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Section Contact & Pied de page -->
+        <section id="contact" class="py-20 bg-slate-900/50 border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold font-heading mb-4">Me Contacter</h2>
+                    <div class="w-20 h-1 bg-emerald-500 mx-auto rounded-full mb-6"></div>
+                    <p class="text-gray-400">Un projet, une question ou une opportunité ? N'hésitez pas à me laisser un message.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                    <!-- Contact Info -->
+                    <div class="space-y-6">
+                        <div class="glass-card p-6 rounded-2xl border border-gray-800 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm text-gray-400">Email</h4>
+                                <a href="mailto:malick@example.com" class="text-white font-medium hover:text-emerald-400 transition-colors">malick@example.com</a>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl border border-gray-800 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm text-gray-400">Localisation</h4>
+                                <p class="text-white font-medium">Dakar, Sénégal</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl border border-gray-800 flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm text-gray-400 mb-2">Réseaux Sociaux</h4>
+                                <div class="flex gap-3">
+                                    <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 text-gray-300 hover:text-emerald-400 hover:bg-slate-700 flex items-center justify-center transition-colors"><i class="fa-brands fa-github"></i></a>
+                                    <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 text-gray-300 hover:text-emerald-400 hover:bg-slate-700 flex items-center justify-center transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 text-gray-300 hover:text-emerald-400 hover:bg-slate-700 flex items-center justify-center transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-2 glass-card p-8 rounded-3xl border border-gray-800">
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Votre Nom</label>
+                                    <input type="text" id="name" required class="w-full bg-slate-950 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors" placeholder="serigne malick tall diouf">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Votre Email</label>
+                                    <input type="email" id="email" required class="w-full bg-slate-950 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors" placeholder="malickdiouf065@gmail.com">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Sujet</label>
+                                <input type="text" id="subject" required class="w-full bg-slate-950 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors" placeholder="Création d’un portfolio personnel en HTML pour Serigne Malick Tall Diouf">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                                <textarea id="message" rows="5" required class="w-full bg-slate-950 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-colors" placeholder="Bonjour Coach,
+
+Je vous présente mon portfolio personnel réalisé en HTML et CSS dans le cadre de mon apprentissage à GoMyCode. Il contient ma présentation, mes compétences, mes projets, une photo, une vidéo de présentation, mon CV et un rapport sur mon utilisation de l’intelligence artificielle.
+
+Merci pour votre accompagnement et vos conseils.
+
+**Présenté par : Serigne Malick Tall Diouf**  
+Étudiant à GoMyCode."></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-lg shadow-emerald-600/30 transition-all duration-300 flex items-center justify-center gap-2">
+                                <i class="fa-regular fa-paper-plane"></i>
+                                Envoyer le message
+                            </button>
+                        </form>
+                        <div id="form-feedback" class="hidden mt-4 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-center text-sm">
+                            Merci pour votre message ! Il a été transmis avec succès.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800/80 bg-slate-950 text-center text-sm text-gray-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© <span id="current-year"></span> Malick. Tous droits réservés.</p>
+            <p class="mt-2 text-xs text-gray-600">Conçu avec passion • Tailwind CSS & Javascript</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JS -->
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form submission demo logic
+        const contactForm = document.getElementById('contact-form');
+        const formFeedback = document.getElementById('form-feedback');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formFeedback.classList.remove('hidden');
+            contactForm.reset();
+            setTimeout(() => {
+                formFeedback.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
